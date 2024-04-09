@@ -13,7 +13,7 @@ UITweens.PressPlaying    = false
 
 UITweens.Button = nil
 
-UITweens.TweenPress = TweenService:Create(UITweens.Button, UITweens.TweenInfoOut, { Size = UDim2.new(UITweens.Button.Size.X.Scale * 0.95, 0, UITweens.Button.Size.Y.Scale * 0.95, 0) })
+UITweens.TweenPress = nil
 
 UITweens.TweenInfoIn = TweenInfo.new(
 	0.2,
@@ -67,12 +67,16 @@ function UITweens:TweenButtonPressedIn(button)
 	self.Button = button
 	local baseSize = button.Size
 	
+	self.TweenPress = TweenService:Create(UITweens.Button, UITweens.TweenInfoOut, { Size = UDim2.new(UITweens.Button.Size.X.Scale * 0.95, 0, UITweens.Button.Size.Y.Scale * 0.95, 0) })
+	
 	self:PlayTween(self.TweenPress, self.PressPlaying)
 end
 
 function UITweens:TweenButtonPressedOut(button)
 	self.Button = button
 	self.IsPressed = false
+	
+	self.TweenPress = TweenService:Create(UITweens.Button, UITweens.TweenInfoOut, { Size = UDim2.new(UITweens.Button.Size.X.Scale * 0.95, 0, UITweens.Button.Size.Y.Scale * 0.95, 0) })
 	self:CancelTween(self.TweenPress, self.PressPlaying)
 	
 	if self.IsHovering then
