@@ -48,6 +48,7 @@ function UITweens:CancelTween(tween, playVariable)
 end
 
 function UITweens:TweenHoverIn(button)
+	self.Button = button
 	local baseSize = button.Size
 
 	local tweenHoverIn = TweenService:Create(button, self.TweenInfoIn, { Size = UDim2.new(baseSize.X.Scale * 1.05, 0, baseSize.Y.Scale * 1.05, 0)})
@@ -55,6 +56,7 @@ function UITweens:TweenHoverIn(button)
 end
 
 function UITweens:TweenHoverOut(button)
+	self.Button = button
 	local baseSize = button.Size
 	
 	local tweenHoverOut = TweenService:Create(button, self.TweenInfoOut, { Size = baseSize })
@@ -62,12 +64,14 @@ function UITweens:TweenHoverOut(button)
 end
 
 function UITweens:TweenButtonPressedIn(button)
+	self.Button = button
 	local baseSize = button.Size
 	
 	self:PlayTween(self.TweenPress, self.PressPlaying)
 end
 
 function UITweens:TweenButtonPressedOut(button)
+	self.Button = button
 	self.IsPressed = false
 	self:CancelTween(self.TweenPress, self.PressPlaying)
 	
