@@ -79,11 +79,11 @@ function UITweens:TweenButtonPressedOut(button)
 	self.TweenPress = TweenService:Create(UITweens.Button, UITweens.TweenInfoOut, { Size = UDim2.new(UITweens.Button.Size.X.Scale * 0.95, 0, UITweens.Button.Size.Y.Scale * 0.95, 0) })
 	self:CancelTween(self.TweenPress, self.PressPlaying)
 	
-	if self.IsHovering then
-		self:PlayTween(self:TweenHoverIn(button), self.HoverInPlaying)
-	else
-		self:PlayTween(self:TweenHoverOut(button), self.HoverOutPlaying)
-	end
+	--if self.IsHovering then
+		--self:PlayTween(self:TweenHoverIn(button), self.HoverInPlaying)
+	--else
+		--self:PlayTween(self:TweenHoverOut(button), self.HoverOutPlaying)
+	--end
 end
 
 return UITweens
